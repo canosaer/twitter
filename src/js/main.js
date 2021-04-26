@@ -187,4 +187,4 @@
 //     }
 // }
 
-new YelpAPI()
+new TwitterAPI()

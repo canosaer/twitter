@@ -149,7 +149,8 @@ gulp.task('image-compress', (done) => {
 gulp.task('start-browsersync', function (done) {
 	browserSync.init({
 		// start the browsersync mini-server
-		server: './', // on the root of the project
+		proxy: 'http://localhost:8888/'
+		// server: './', // on the root of the project
 	});
 	done();
 });
