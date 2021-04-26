@@ -1,0 +1,26 @@
+@use 'variables';
+
+@mixin landscape {
+    @media (min-width: 768px){
+      @content;
+    }
+  }
+  
+@mixin medium-screen {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin wide-screen {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin heading-row {
+	grid-column: 2/3;
+	justify-self: center;
+  text-align: center;
+  width: 17rem;
+}
