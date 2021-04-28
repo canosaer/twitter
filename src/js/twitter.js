@@ -16,7 +16,7 @@ class TwitterAPI {
     handleSearch = (evt) => {
         const query = document.querySelector(`.search-controls__input_term`).value
 
-        console.log(`searching...`)
+        console.log(query)
 
         const data = {
             op: `search_tweets`,
@@ -24,11 +24,16 @@ class TwitterAPI {
         }
 
 
-        axios.get(this.API_BASE_URL, { params: data }).then(this.processResults).catch(this.handleError)
+        axios.get(this.API_BASE_URL, { params: data }).then(this.processResults)
+        // .catch(this.handleError)
     }
 
-    processReuslts = (data) => {
-        const results = data.data
+    processResults = (data) => {
+        // const results = data.data
+        let preprosResults = JSON.parse(data.data.substring(38,data.data.length))
+
+        console.log(preprosResults)
+
     }
 
     handleError = (evt) => {
