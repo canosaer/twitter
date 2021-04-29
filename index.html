@@ -3,68 +3,46 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta http-equiv="x-ua-compatible" content="ie=edge" />
-		<title> Yelp Business Search </title>
+		<title> Twitter Search </title>
 		<meta name="description" content="" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 		<script src="https://kit.fontawesome.com/5290a709ed.js" crossorigin="anonymous"></script>
-		<link rel="preconnect" href="https://fonts.gstatic.com">
-		<link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="dist/css/main.css" />
 	</head>
 
 	<body>
 		<main class="display-grid">
-			<a class="site-heading" href="https://www.yelp.com/" target="_blank">Yelp</a>
-			<h2 class="site-heading__subheading">Business Search</h2>
+			<header class="site-heading">Twitter Search</header>
 			<section class="search-controls">
 				<p class="article-count"></p>
-				<input class="search-controls__input search-controls__input_term" id="term" name="term" placeholder="business">
-				<input class="search-controls__input search-controls__input_location" id="location" name="location" placeholder="location">
+				<input class="search-controls__input" id="term" name="term">
 				<img class="search-controls__button" src="src/img/magnifying-glass.svg" alt="search button"></img>
-				<div class="search-menu"><span class="search-menu__active"><span class="search-menu__text">Sort by Relevance</span><i class="fas fa-chevron-down search-menu__arrow"></i></span>
-					<ul class="search-menu__sort-list hidden">
-						<li class="search-menu__item search-menu__item_relevance">Sort by Relevance</li>
-						<li class="search-menu__item search-menu__item_rating">Sort by Rating</li>
-						<li class="search-menu__item search-menu__item_count">Sort by # Reviews</li>
-						<li class="search-menu__item search-menu__item_distance">Sort by Distance</li>
+				<div class="sort-menu"><span class="sort-menu__active"><span class="sort-menu__text">Sort by Relevance</span><i class="fas fa-chevron-down sort-menu__arrow"></i></span>
+					<ul class="sort-menu__list hidden">
+						<li class="sort-menu__item sort-menu__item_relevance">Sort by Relevance</li>
+						<li class="sort-menu__item sort-menu__item_newest">Sort by Newest</li>
+						<li class="sort-menu__item sort-menu__item_popularity">Sort by Popularity</li>
 					</ul>
 				</div>
-				<div class="price-range"><span class="price-range__toggle">Price Range <span class="price-range__symbol">&gt;&lt;</span></span>
-					<div class="price-range__input hidden">
-						<input class="price-range__checkbox" id="$" name="$" type="checkbox">
-						<label class="price-range__label" for="$">$</label>
-						<input class="price-range__checkbox" id="$$" name="$$" type="checkbox">
-						<label class="price-range__label" for="$$">$$</label>
-						<input class="price-range__checkbox" id="$$$" name="$$$" type="checkbox">
-						<label class="price-range__label" for="$$$">$$$</label>
-						<input class="price-range__checkbox" id="$$$$" name="$$$$" type="checkbox">
-						<label class="price-range__label" for="$$$$">$$$$</label>
-					</div>
-				</div>
-				<div class="radius-menu">
-					<p class="radius-menu__within">Within</p>
-					<p class="radius-menu__active"><span class="radius-menu__text">25 miles</span><i class="fas fa-chevron-down radius-menu__arrow"></i></p>
-					<ul class="radius-menu__list hidden">
-						<li class="radius-menu__item radius-menu__item_5">5 miles</li>
-						<li class="radius-menu__item radius-menu__item_15">15 miles</li>
-						<li class="radius-menu__item radius-menu__item_25">25 miles</li>
-						<li class="radius-menu__item radius-menu__item_50">50 miles</li>
+				<div class="count-menu">
+					<p class="count-menu__show">Show</p>
+					<p class="count-menu__active"><span class="count-menu__text">15 results</span><i class="fas fa-chevron-down radius-menu__arrow"></i></p>
+					<ul class="count-menu__list hidden">
+						<li class="count-menu__item count-menu__item_15">15 results</li>
+						<li class="count-menu__item count-menu__item_25">25 results</li>
+						<li class="count-menu__item count-menu__item_50">50 results</li>
+						<li class="count-menu__item count-menu__item_100">100 results</li>
 					</ul>
-				</div>
-				<div class="open-now">
-					<label class="open-now__label" for="open">Open Now</label>
-					<input class="open-now__checkbox" id="open" name="open" type="checkbox">
 				</div>
 			</section>
 			<section class="results">
 				<!-- <div class="results__row">
-						<a class="results__photo"></a>
-						<a class="results__name" href="#" target="_blank">Olympia Prime</a>
-						<p class="results__rating-row"><span class="results__rating">1.5 stars</span><span class="results__reviews">(4 reviews)</span></p>
-						<p class="results__info-row"><span class="results__price">$$$ &bull;</span><span class="results__category">American (New) &bull;</span><span class="results__transactions">Delivery</span></p>
-						<p class="results__address1">125 E Court Sq</p>
-						<p class="results__city-state-zip"><span class="results__city">Decatur, </span><span class="results__state">GA </span><span class="results__zip">30030</span></p>
+					<div class="results__avatar"></div>
+					<p class="results__user-name">Drew Fletcher</p>
+					<p class="results__at-row">@<span class="results__screen-name">coachfletch85</span></p>
+					<p class="results__tweet">ARTICLE. Elisa Tartler’s World Cup audition for the German @Olympics #archery team 🏹🇩🇪</p>
+					<p class="results__timestamp">4/29/21 12:15 PM </p>
 				</div> -->
 			</section>
 		</main>
