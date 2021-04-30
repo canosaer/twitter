@@ -27,31 +27,67 @@ class TwitterAPI {
 
     handleSearch = (evt) => {
         const query = document.querySelector(`.search-controls__input`).value
+        
+        let selectedSort = `mixed`
+        if(this.sortText.textContent.indexOf(`Popularity`) !== -1) selectedSort = `popular`
+        else if(this.sortText.textContent.indexOf(`Newest`) !== -1) selectedSort = `recent`
 
-        console.log(query)
+        const numResults = parseInt(this.countText.textContent.substring(0,3).trim())
+        
 
         const data = {
             op: `search_tweets`,
             q: query,
-            result_type: `recent`,
-            count: 20,
+            result_type: selectedSort,
+            count: numResults,
         }
 
 
-        axios.get(this.API_BASE_URL, { params: data }).then(this.processResults)
-        // .catch(this.handleError)
+        axios.get(this.API_BASE_URL, { params: data }).then(this.processResults).catch(this.handleError)
     }
 
     processResults = (data) => {
-        // const results = data.data
-        let results = JSON.parse(data.data.substring(38,data.data.length))
-
+        // const results = data.data.statuses
+        let results = JSON.parse(data.data.substring(38,data.data.length)).statuses
         console.log(results)
+
+        const resultsSection = document.querySelector(`.results`)
+        const oldContent = resultsSection.querySelectorAll(`*`)
+        if(oldContent){
+            oldContent.forEach(element => {
+                element.remove()
+            })
+        }
+
+        results.forEach(tweet => {
+            let resultRow = document.createElement(`div`)
+            resultRow.classList.add(`results__row`)
+
+            let avatarDiv = document.createElement(`div`)
+            avatarDiv.classList.add(`results__avatar`)
+            avatarDiv.style.background = `url(${tweet.user.profile_image_url})`
+            avatarDiv.style.backgroundSize = `cover`
+            avatarDiv.style.backgroundPoisition = `center`
+            resultRow.appendChild(avatarDiv)
+
+            let nameP = document.createElement(`p`)
+            nameP.classList.add(`results__user-name`)
+            nameP.textContent = tweet.user.name
+            resultRow.appendChild(nameP)
+
+            let atRowP = document.createElement(`p`)
+            atRowP.classList.add(`results__at-row`)
+
+            
+
+        });
+
+        
 
     }
 
     handleError = (evt) => {
-        console.error(`ERROR!`, err)
+        console.error(`ERROR!`, evt)
     }
 
     checkForEnter = (evt) => {
