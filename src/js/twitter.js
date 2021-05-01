@@ -55,8 +55,8 @@ class TwitterAPI {
     }
 
     processResults = (data) => {
-        // const results = data.data.statuses
-        let results = JSON.parse(data.data.substring(38,data.data.length)).statuses
+        let results = data.data.statuses
+        // let results = JSON.parse(data.data.substring(38,data.data.length)).statuses
 
         const resultsSection = document.querySelector(`.results`)
         const oldContent = resultsSection.querySelectorAll(`*`)
