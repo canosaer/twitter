@@ -33,7 +33,13 @@ class TwitterAPI {
             else if(this.sortText.textContent.indexOf(`Newest`) !== -1) selectedSort = `recent`
 
             const numResults = parseInt(this.countText.textContent.substring(0,3).trim())
-            
+            let popularityMessage = document.querySelector(`.popularity-message`)
+            if(numResults > 15 && selectedSort === `popular`){
+                popularityMessage.classList.remove(`hidden`)
+            }
+            else{
+                if(!popularityMessage.classList.contains(`hidden`)) popularityMessage.classList.add(`hidden`)
+            }
 
             const data = {
                 op: `search_tweets`,
@@ -51,7 +57,6 @@ class TwitterAPI {
     processResults = (data) => {
         // const results = data.data.statuses
         let results = JSON.parse(data.data.substring(38,data.data.length)).statuses
-        console.log(results)
 
         const resultsSection = document.querySelector(`.results`)
         const oldContent = resultsSection.querySelectorAll(`*`)
