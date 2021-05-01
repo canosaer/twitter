@@ -190,6 +190,14 @@ a{
 	}
 }
 
+.popularity-message{
+	font-size: 0.75rem;
+	color: red;
+	grid-row: 3/4;
+	grid-column: 2/3;
+	padding: 1.3rem 0 0 8rem;
+}
+
 .results{
 	display: grid;
 	grid-column: 1/-1;
